@@ -4,7 +4,7 @@ public class VariablesTheme {
         System.out.println("\nЗанятие1. Урок 6");
         System.out.println("Переменные: примитивные типы данных");
 
-/* TODO
+/* TODO #1
 объявите переменные всех существующих в Java примитивных типов данных, присвоив им значения
 в качестве значений используйте характеристики компьютера: количество ядер, частота процессора итд
 выведите на консоль:
@@ -32,7 +32,7 @@ public class VariablesTheme {
         System.out.println("Boolean:" + varBool);
 //------------------------------------------------------------------//
 
-/* TODO
+/* TODO #2
 ручка стоит 100 руб, а книга — 200 руб.
 вместе на них действует скидка 11%
 выведите на консоль:
@@ -55,7 +55,7 @@ public class VariablesTheme {
         System.out.println("Стоимость со скидкой:" + totalCostNet);
 //------------------------------------------------------------------//
 
-/* TODO 
+/* TODO #3
 Вывод слова JAVA */
         System.out.println("\n3. Вывод слова JAVA\n");
         System.out.println("   J    a  v     v  a      ");
@@ -65,7 +65,7 @@ public class VariablesTheme {
 //------------------------------------------------------------------//
 
 
-/* TODO
+/* TODO #4
 создайте переменные всех целых числовых типов
 присвойте им самые большие числа, которые они могут хранить
 инкрементируйте, а затем декрементируйте все значения на единицу
@@ -106,7 +106,7 @@ public class VariablesTheme {
         System.out.println(varLong + "\n");
 //------------------------------------------------------------------//
 
-/* TODO
+/* TODO #5
 создайте две переменные типа int, присвоив им 2 и 5
 поменяйте значения переменных местами разными способами:
     с помощью третьей переменной
@@ -152,7 +152,7 @@ public class VariablesTheme {
         System.out.println("a = " + ( c ^ a ));
         System.out.println("b = " + ( c ^ b ) + "\n");
 
-/* TODO
+/* TODO #6
 // проинициализируйте переменные типа char символами (не их кодами!), 
 // которым соответствуют коды: 35, 38, 64, 94, 95
 // выведите на консоль в столбец попарно, используя переменные для обоих значений:
@@ -179,7 +179,7 @@ public class VariablesTheme {
         System.out.println( code_94 + "     " + symb_94);
         System.out.println( code_95 + "     " + symb_95);
 
-/*TODO
+/*TODO #7
 выведите в консоль Java-талисман:
     /\    
    /  \   
@@ -190,21 +190,19 @@ public class VariablesTheme {
 выведите результат в консоль, используя значения переменных
 */
         System.out.println("\n7. Вывод в консоль ASCII-арт Дюка\n");
-        char ForwardSlash = 47;
-        char BackSlash = 92;
-        char LeftParen = 40;
-        char RightParen = 41;
-        char Underline = 95;
+        char fs = 47;       // slash /
+        char bs = 92;       // обратный slash \
+        char lp = 40;       // левая скобка (
+        char rp = 41;       // правая скобка )
+        char uLine = 95;    // подчеркивание
 
-        System.out.println("    " + ForwardSlash + BackSlash + "    ");
-        System.out.println("   " + ForwardSlash + "  " + BackSlash + "   ");
-        System.out.println("  " + ForwardSlash + Underline + LeftParen + " " + RightParen + 
-                            BackSlash + "  ");
-        System.out.println(" " + ForwardSlash + "      " + BackSlash + " ");
-        System.out.println(""  + ForwardSlash + Underline + Underline + Underline + Underline +
-                            ForwardSlash + BackSlash + Underline + Underline + BackSlash );
+        System.out.println("    " + fs + bs );
+        System.out.println("   " + fs + "  " + bs );
+        System.out.println("  " + fs + uLine + lp + " " + rp + bs );
+        System.out.println(" " + fs + "      " + bs );
+        System.out.println(""  + fs + uLine + uLine + uLine + uLine + fs + bs + uLine + uLine + bs);
 
-/* TODO
+/* TODO #8
 из числа 123 выделите сотни, десятки и единицы
 выделяйте каждую цифру числа программно, а не написав их самим
 используйте для этого только операции / и %
@@ -234,7 +232,7 @@ Z единиц
         System.out.println("Сумма его цифр = " + sum );
         System.out.println("Произведение = " + product);
 
-/* TODO
+/* TODO #9
 имеется 86399 секунд
 переведите число в часы, минуты и секунды
 используйте для этого только операции / и %
@@ -245,7 +243,6 @@ Z единиц
         int hours = time / 3600;
         int minutes = ( time % 3600 ) / 60;
         int seconds = ( time % 3600 ) % 60;
-            //seconds = time - ( hours * 3600 ) - ( minutes * 60 );
 
         System.out.println(hours + ":" + minutes + ":" + seconds + "\n");
 
