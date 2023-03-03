@@ -1,8 +1,11 @@
 public class IfElseStatementTheme{
     public static void main(String[] args) {
         System.out.println("\n1. Перевод псевдокода на язык Java");
-
         int age = 17;
+        boolean isMale = false;
+        float heigh = 1.75f;
+        char firstLetter = "Max".charAt(0);
+
         if (age > 20) {
             System.out.println("Возраст " + age + " больше 20");
         }
@@ -10,7 +13,6 @@ public class IfElseStatementTheme{
             System.out.println("Возраст " + age + " меньше 20");
         }
 
-        boolean isMale = false;
         if (!isMale) {
             System.out.println("Женский");
         }
@@ -18,7 +20,6 @@ public class IfElseStatementTheme{
             System.out.println("Мужской");
         }
 
-        float heigh = 1.75f;
         if (heigh < 1.80) {
             System.out.println("Рост " + heigh + " меньше 1м 80см");
         }
@@ -26,7 +27,6 @@ public class IfElseStatementTheme{
             System.out.println("Рост " + heigh + " больше 1м 80см");
         }
 
-        char firstLetter = "Max".charAt(0);
         if (firstLetter == 'M') {
             System.out.println("Первая буква имени: " + firstLetter);
         }
@@ -36,7 +36,7 @@ public class IfElseStatementTheme{
         else {
             System.out.println("Первая буква имени " + firstLetter + " (не M и не I)");
         }
-// #2
+
         System.out.println("\n2. Поиск max и min числа");
         float a = 9.81f;
         int b = 10;
@@ -52,16 +52,14 @@ public class IfElseStatementTheme{
         else {
             System.out.println("a = b = " + a);
         }
-//#3
+
         System.out.println("\n3. Проверка числа");
         int number = 33;
-
         System.out.println("Исходное число:" + number);
 
         if (number != 0) {
             // четное/нечетное
             int rem = number % 2;
-
             // знак числа
             char sign;
             if (number > 0) {
@@ -70,7 +68,6 @@ public class IfElseStatementTheme{
             else {
                 sign = '-';
             }
-
             // вывод проверки
             if (rem == 0) {
                 if (sign == '+') {
@@ -92,11 +89,10 @@ public class IfElseStatementTheme{
         else {
             System.out.println("Проверка: \nНоль");
         }
-// #4
+
         System.out.println("\n4. Поиск одинаковых цифр в числах");
         int num1 = 123;
         int num2 = 312;
-
         int num1_1 = (num1 % 100) % 10;
         int num1_2 = (num1 % 100) / 10;
         int num1_3 = (num1 / 100);
@@ -121,7 +117,7 @@ public class IfElseStatementTheme{
                 System.out.println("Одинаковая цифра: " + num1_3 + "\nРазряд: 3\n");
             }
         }
-// #5
+
         System.out.println("\n5. Определение символа по его коду");
         char code = '\u0057';
         
@@ -138,13 +134,11 @@ public class IfElseStatementTheme{
             System.out.println( code + " - не буква и не число" );
         }
 
-// #6
         System.out.println("\n6.Подсчет суммы вклада и начисленных банком %");
         float deposite = 300_000f;
         float rate1 = 5f;
         float rate2 = 7f;
         float rate3 = 10f;
-
         float percent;
 
         if (deposite < 100_000) {
@@ -156,14 +150,11 @@ public class IfElseStatementTheme{
         else {
             percent = deposite * rate3 / 100;
         }
-
         System.out.println("Сумма вклада: " + deposite );
         System.out.println("Начисленный %: " +  percent );
         System.out.println("Итоговая сумма с %: " + ( deposite + percent ) );
 
-// #7
         System.out.println("\n7. Определение оценки по предметам");
-
         float rateHist = 59f;
         float rateProg = 91f;
         float averageRate = 0f;
@@ -187,7 +178,6 @@ public class IfElseStatementTheme{
         averageGrade = grade;
         averageRate  = rateHist;
 
-
         if (rateProg <= 60) {
             grade = 2;
         }
@@ -207,13 +197,11 @@ public class IfElseStatementTheme{
 
         System.out.println(averageGrade + " - средний балл");
         System.out.println(averageRate + " - средний % по предметам");
-// #8
-        System.out.println("\n8. Расчет прибыли за год");
 
+        System.out.println("\n8. Расчет прибыли за год");
         float rentPrice = 5_000f;
         float costPrice = 9_000f;
         float monthIncome = 13_000f;
-
         float yearProfit = ( monthIncome - costPrice - rentPrice ) * 12;
 
         if (yearProfit > 0) {
@@ -222,16 +210,13 @@ public class IfElseStatementTheme{
         else {
             System.out.println("прибыль за год: " + yearProfit + " руб.");
         }
-// #9
-        System.out.println("\n9. Подсчет количества банкнот");
 
+        System.out.println("\n9. Подсчет количества банкнот");
         int numBank100 = 10;
         int numBank10 = 5;
         int numBank1 = 50;
-
         int sum = 567;
         int rest;
-
         int numOut100;
         int numOut10;
         int numOut1;
@@ -244,13 +229,12 @@ public class IfElseStatementTheme{
         }
 
         rest = sum - ( 100 * numOut100 );
-
         numOut10 = rest / 10;
         if ( numOut10 > numBank10 ) {
             numOut10 = numBank10;
         }
 
-        rest = rest - ( 10 * numOut10 );
+        rest = rest - (numOut10 * 10);
         numOut1 = rest;
         if ( numOut1 > numBank1 ) {
             numOut1 = numBank1 ;

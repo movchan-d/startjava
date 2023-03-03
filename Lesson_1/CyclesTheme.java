@@ -1,7 +1,6 @@
 public class CyclesTheme{
     public static void main(String[] args) {
         System.out.println("\n1. Подсчет суммы четных и нечетных чисел");
-// #1
         int i = -10;
         int sumEven = 0;
         int sumOdd = 0;
@@ -18,9 +17,8 @@ public class CyclesTheme{
 
         System.out.println("в промежутке [-10, 21] сумма четных чисел = " + sumEven +
             ",а нечетных = " + sumOdd);
-// #2
-        System.out.println("\n2. Вывод чисел в интервале (min и max) в порядке убывания");
 
+        System.out.println("\n2. Вывод чисел в интервале (min и max) в порядке убывания");
         int a = 10;
         int b = 5;
         int c = -1;
@@ -43,9 +41,8 @@ public class CyclesTheme{
         for (i = max - 1; i > min; i--) {
             System.out.printf("%d", i);
         }
-// #3
-        System.out.println("\n\n3. Вывод реверсивного числа и суммы его цифр");
 
+        System.out.println("\n\n3. Вывод реверсивного числа и суммы его цифр");
         int numSrc = 1234;
         int sum = 0;
 
@@ -74,9 +71,8 @@ public class CyclesTheme{
             i++;
         }
         System.out.printf("\nСумма цифр: %d\n", sum );
-// #4
-        System.out.println("\n4. Вывод чисел на консоль в несколько строк");
 
+        System.out.println("\n4. Вывод чисел на консоль в несколько строк");
         int j = 1;
         for (i = 1; i < 24; i+=2) {
             if (j % 5 == 0) {
@@ -95,9 +91,8 @@ public class CyclesTheme{
                 j++;
             }
         }
-// #5
-        System.out.println("\n5. Проверка количества двоек на четность/нечетность");
 
+        System.out.println("\n5. Проверка количества двоек на четность/нечетность");
         int num = 3242592;
         int numTwo = 0;
         int remDiv = num;
@@ -126,11 +121,10 @@ public class CyclesTheme{
         else {
             System.out.printf("число %d содержит %d (%s) количество двоек\n", num, numTwo, "нечетное");
         }
-// #6
+
         System.out.println("\n6. Отображение фигур в консоли");
         i = 1;
         j = 1;
-
         // прямоугольник
         for ( i = 1; i < 6 ; i++) {
             for ( j = 1; j < 10 ; j++) {
@@ -138,7 +132,6 @@ public class CyclesTheme{
             }
             System.out.printf("%s%n", "*");
         }
-
         // прямоугольный треугольник
         i = 5;
         while (i > 0) {
@@ -150,7 +143,6 @@ public class CyclesTheme{
             System.out.printf("%s\n", "#");
             i--;
         }
-
         // равносторонний треугольник
         i = 1;
         do{
@@ -173,7 +165,7 @@ public class CyclesTheme{
             System.out.printf("%s\n", "$");
             i++;
         }while (i < 3);
-// #7
+
         System.out.println("\n7. Отображение ASCII-символов");
         System.out.printf("%8s%8s %n", "Dec", "Char");
 
@@ -187,9 +179,8 @@ public class CyclesTheme{
                 System.out.printf("%8d%8s%n", asciiDec, asciiChar);
             }
         }
-// #8
-        System.out.println("\n8. Проверка, является ли число палиндромом");
 
+        System.out.println("\n8. Проверка, является ли число палиндромом");
         numSrc = 1_234_321;
         int numTrg = 0;
         int numCur = 0;
@@ -218,9 +209,8 @@ public class CyclesTheme{
         if (numSrc == numTrg) {
             System.out.printf("Число %d является палиндромом\n", numSrc);
         }
-// #9
-        System.out.println("\n9. Определение, является ли число счастливым");
 
+        System.out.println("\n9. Определение, является ли число счастливым");
         numSrc = 135234;
         numCur = 0;
         int numTrg1 = 0;
@@ -263,9 +253,8 @@ public class CyclesTheme{
         if (sum1 == sum2) {
             System.out.printf("Число %d является счастливым\n", numSrc);
         }
-// #10
-        System.out.println("\n10. Вывод таблицы умножения Пифагора");
 
+        System.out.println("\n10. Вывод таблицы умножения Пифагора");
         System.out.printf("\t" + "ТАБЛИЦА ПИФАГОРА\n");
         System.out.printf("   |%3s %2s %2s %2s %2s %2s %2s %2s%n", "2","3","4","5","6","7","8","9");
         System.out.printf("----------------------------");
