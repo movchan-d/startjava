@@ -80,7 +80,6 @@ public class VariablesTheme {
         a = c - a;
         b = c - b;
         System.out.println("новые значения переменных:\n" + "a = " + a + "\n"+ "b = " + b);
-
         // с помощью побитовой операции ^
         System.out.println("5.3 С помощью побитовой операции ^");
         System.out.println("исходные значения переменных:\n" + "a = " + a + "\n"+ "b = " + b);
