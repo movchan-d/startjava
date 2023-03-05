@@ -7,24 +7,19 @@ public class Calculator{
 
         if (sign == '+') {
             result = a + b;
-        }
-        else if (sign == '-') {
+        } else if (sign == '-') {
             result = a - b;
-        }
-        else if (sign == '*') {
+        } else if (sign == '*') {
             result = a * b;
-        }
-        else if (sign == '/') {
+        } else if (sign == '/') {
             result = a / b;
-        }
-        else if (sign == '%') {
+        } else if (sign == '%') {
             result = a % b;
-        }
-        else if (sign == '^') {
+        } else if (sign == '^') {
             int i = 0;
             result = 1;
             while (i < b) {
-                result = result * a;
+                result *= a;
                 i++;
             }
         }

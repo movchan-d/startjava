@@ -5,18 +5,17 @@ public class CyclesTheme{
         int sumEven = 0;
         int sumOdd = 0;
 
-        do{
+        do {
             if ( i % 2 == 0 ) {
-                sumEven = sumEven + i;
-            }
-            else {
-                sumOdd = sumOdd + i;
+                sumEven += i;
+            } else {
+                sumOdd += i;
             }
             i++;
-        }while(i <= 21);
+        } while(i <= 21);
 
         System.out.println("в промежутке [-10, 21] сумма четных чисел = " + sumEven +
-            ",а нечетных = " + sumOdd);
+                ",а нечетных = " + sumOdd);
 
         System.out.println("\n2. Вывод чисел в интервале (min и max) в порядке убывания");
         int a = 10;
@@ -51,22 +50,19 @@ public class CyclesTheme{
 
         i = 1;
         while (i < 5) {
-            
             a = 1;
             int j = 0;
             while (j < i) {
-                a = a * 10;
+                a *= 10;
                 j++;
             }
             b = 1;
             j = 1;
             while (j < i) {
-                b = b * 10;
+                b *= 10;
                 j++;
             }
-
             sum = sum + ( numSrc % a ) / b;
-
             System.out.printf( "%d", ( numSrc % a ) / b);
             i++;
         }
@@ -78,14 +74,13 @@ public class CyclesTheme{
             if (j % 5 == 0) {
                 System.out.printf("%4d\n", i);
                 j = 0;
-            }
-            else {
+            } else {
                 System.out.printf("%4d", i);
             }
             j++;
         }
 
-        if (j-1 != 0) {
+        if ((j - 1) != 0) {
             while (j < 6) {
                 System.out.printf("%4d", 0);
                 j++;
@@ -99,26 +94,23 @@ public class CyclesTheme{
 
         i = 7;
         while (i > 0 ) {
-            
             int k = 1;
             int koef = 1;
+
             while ( k < i) {
-                koef = koef * 10;
+                koef *= 10;
                 k++;
             }
-
             if ( remDiv / koef == 2) {
-                numTwo = numTwo + 1;
+                numTwo++;
             }
             remDiv = remDiv % koef;
-            
             i--;
         }
 
         if (numTwo % 2 == 0) {
             System.out.printf("число %d содержит %d (%s) количество двоек\n", num, numTwo, "четное");
-        }
-        else {
+        } else {
             System.out.printf("число %d содержит %d (%s) количество двоек\n", num, numTwo, "нечетное");
         }
 
@@ -145,7 +137,7 @@ public class CyclesTheme{
         }
         // равносторонний треугольник
         i = 1;
-        do{
+        do {
             j = 1;
             while ( j < i) {
                 System.out.printf("%s", "$");
@@ -153,10 +145,10 @@ public class CyclesTheme{
             }
             System.out.printf("%s\n", "$");
             i++;
-        }while(i < 4);
+        } while(i < 4);
 
         i = 1;
-        do{
+        do {
             j = 2;
             while (j > i) {
                 System.out.printf("%s", "$");
@@ -164,7 +156,7 @@ public class CyclesTheme{
             }
             System.out.printf("%s\n", "$");
             i++;
-        }while (i < 3);
+        } while (i < 3);
 
         System.out.println("\n7. Отображение ASCII-символов");
         System.out.printf("%8s%8s %n", "Dec", "Char");
@@ -174,8 +166,7 @@ public class CyclesTheme{
 
             if (asciiDec < 48 & asciiDec % 2 != 0) {
                 System.out.printf("%8d%8s%n", asciiDec, asciiChar);
-            }
-            else if ( asciiDec > 96 & asciiDec < 123 & asciiDec % 2 == 0) {
+            } else if ( asciiDec > 96 & asciiDec < 123 & asciiDec % 2 == 0) {
                 System.out.printf("%8d%8s%n", asciiDec, asciiChar);
             }
         }
@@ -186,22 +177,18 @@ public class CyclesTheme{
         int numCur = 0;
 
         for (i = 1; i < 8; i++) {
-
             a = 1;
             j = 0;
-
             while (j < i) {
-                a = a * 10;
+                a *= 10;
                 j++;
             }
-
             b = 1;
             j = 1;
             while (j < i) {
-                b = b * 10;
+                b *= 10;
                 j++;
             }
-
             numCur = ( numSrc % a ) / b;
             numTrg = numTrg + numCur * b;
         }
@@ -219,7 +206,6 @@ public class CyclesTheme{
         int sum2 = 0;
 
         for (i = 1; i < 7; i++) {
-            
             a = 1;
             j = 0;
             while (j < i) {
@@ -238,12 +224,11 @@ public class CyclesTheme{
 
             if ( i < 4) {
                 numTrg2 = numTrg2 + numCur * b;
-                sum2 = sum2 + numCur;
-            }
-            else {
+                sum2 += numCur;
+            } else {
                 b = b / 1000;
                 numTrg1 = numTrg1 + numCur * b;
-                sum1 = sum1 + numCur;
+                sum1 += numCur;
             }
         }
 

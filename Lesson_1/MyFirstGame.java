@@ -6,8 +6,7 @@ public class MyFirstGame{
             if (numUser > numComp) {
                 System.out.printf("число %d больше %d\n", numUser , numComp);
                 numUser--;
-            }
-            else {
+            } else {
                 System.out.printf("число %d больше %d\n", numUser , numComp);
                 numUser++;
             }

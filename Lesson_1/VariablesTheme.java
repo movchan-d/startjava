@@ -3,14 +3,14 @@ public class VariablesTheme {
         System.out.println("\nЗанятие1. Урок 6. Переменные: примитивные типы данных");
 
         System.out.println("\n1. Вывод значений переменных на консоль");
-        byte    sysBit = 64;
-        short   sysRelease = 11;
-        int     ram = 8;
-        long    hdd = 500;
-        float   monitorDigonal  = 23.8f;
-        double  cpuFrequency = 1.99d;
-        char    sysLang = 'R';
-        boolean sensor = true;
+        byte sysBit = 64;
+        short sysRelease = 11;
+        int ram = 8;
+        long hdd = 500;
+        float monitorDigonal = 23.8f;
+        double cpuFrequency = 1.99d;
+        char sysLang = 'R';
+        boolean sensory = true;
         System.out.println("Разряд ОС (бит): " + sysBit);
         System.out.println("Выпуск Windows: " + sysRelease);
         System.out.println("RAM: " + ram);
@@ -18,7 +18,7 @@ public class VariablesTheme {
         System.out.println("Диагональ монитора: " + monitorDigonal);
         System.out.println("Частота процессора: " + cpuFrequency);
         System.out.println("Язык системы: " + sysLang);
-        System.out.println("Сенсорный ввод: " + sensor);
+        System.out.println("Сенсорный ввод: " + sensory);
 
         System.out.println("\n2. Расчет стоимости товара со скидкой");
         float penPrice = 100;
@@ -32,36 +32,21 @@ public class VariablesTheme {
         System.out.println("Стоимость со скидкой:" + discountPrice);
 
         System.out.println("\n3. Вывод слова JAVA");
-        System.out.println("   J    a  v     v  a      ");
-        System.out.println("   J   a a  v   v  a a     ");
-        System.out.println("J  J  aaaaa  V V  aaaaa    ");
-        System.out.println(" JJ  a     a  V  a     a   \n");
+        System.out.println("   J    a  v     v  a");
+        System.out.println("   J   a a  v   v  a a");
+        System.out.println("J  J  aaaaa  V V  aaaaa");
+        System.out.println(" JJ  a     a  V  a     a\n");
 
         System.out.println("\n4. Вывод min и max значений целых числовых типов");
-        byte varByte = 127;
-        short varShort = 32767;
-        int varInt = 2147483647;
-        long varLong = 9223372036854775807L;
-        System.out.println(varByte);
-        varByte++;
-        System.out.println(varByte);
-        varByte--;
-        System.out.println(varByte + "\n");
-        System.out.println(varShort);
-        varShort++;
-        System.out.println(varShort);
-        varShort--;
-        System.out.println(varShort + "\n");
-        System.out.println(varInt);
-        varInt++;
-        System.out.println(varInt);
-        varInt--;
-        System.out.println(varInt + "\n");
-        System.out.println(varLong);
-        varLong++;
-        System.out.println(varLong);
-        varLong--;
-        System.out.println(varLong + "\n");
+        byte maxByte = 127;
+        short maxShort = 32767;
+        int maxInt = 2147483647;
+        long maxLong = 9223372036854775807L;
+
+        System.out.println(maxByte + "\t" + maxByte++ + "\t" + maxByte-- + "\n");
+        System.out.println(maxShort  + "\t" + maxShort ++ + "\t" + maxShort -- + "\n");
+        System.out.println(maxInt  + "\t" + maxInt ++ + "\t" + maxInt -- + "\n");
+        System.out.println(maxLong  + "\t" + maxLong ++ + "\t" + maxLong -- + "\n");
 
         System.out.println("\n5. Перестановка значений переменных");
         int a = 2;
@@ -72,14 +57,16 @@ public class VariablesTheme {
         System.out.println("исходные значения переменных:\n" + "a = " + a + "\n"+ "b = " + b);
         b = a;
         a = c;
+        c = 0;
         System.out.println("новые значения переменных:\n" + "a = " + a + "\n"+ "b = " + b);
         // с помощью арифметических операций
         System.out.println("5.2 С помощью арифметических операций");
         System.out.println("исходные значения переменных:\n" + "a = " + a + "\n"+ "b = " + b);
-        c = a + b;
-        a = c - a;
-        b = c - b;
-        System.out.println("новые значения переменных:\n" + "a = " + a + "\n"+ "b = " + b);
+        c += a;
+        c += b;
+        a -= c;
+        b -= c;
+        System.out.println("новые значения переменных:\n" + "a = " + -a + "\n"+ "b = " + -b);
         // с помощью побитовой операции ^
         System.out.println("5.3 С помощью побитовой операции ^");
         System.out.println("исходные значения переменных:\n" + "a = " + a + "\n"+ "b = " + b);
@@ -95,11 +82,11 @@ public class VariablesTheme {
         char degree = '^';
         char underLine = '_';
         System.out.println("Код    Символ");
-        System.out.println( (int) lattice + "     " + lattice);
-        System.out.println( (int) and + "     " + and);
-        System.out.println( (int) dog + "     " + dog);
-        System.out.println( (int) degree + "     " + degree);
-        System.out.println( (int) underLine + "     " + underLine);
+        System.out.println((int) lattice + "     " + lattice);
+        System.out.println((int) and + "     " + and);
+        System.out.println((int) dog + "     " + dog);
+        System.out.println((int) degree + "     " + degree);
+        System.out.println((int) underLine + "     " + underLine);
 
         System.out.println("\n7. Вывод в консоль ASCII-арт Дюка");
         char slash = '/';
@@ -111,20 +98,20 @@ public class VariablesTheme {
         System.out.println("   " + slash + "  " + backSlach );
         System.out.println("  " + slash + uLine + leftBracket + " " + rightBracket + backSlach );
         System.out.println(" " + slash + "      " + backSlach );
-        System.out.println(""  + slash + uLine + uLine + uLine + uLine + slash + backSlach + uLine
-                            + uLine + backSlach);
+        System.out.println(""  + slash + uLine + uLine + uLine + uLine + slash + backSlach + uLine +
+                uLine + backSlach);
 
         System.out.println("\n8. Вывод количества сотен, десятков и единиц числа");
         int number = 123;
-        int hundred = number / 100;
-        int ten = (number % 100) / 10;
-        int one = number % 10;
-        int sum = hundred + ten + one;
-        int product = hundred * ten  * one;
+        int hundreds = number / 100;
+        int tens = (number % 100) / 10;
+        int ones = number % 10;
+        int sum = hundreds + tens + ones;
+        int product = hundreds * tens * ones;
         System.out.println("Число " + number + " содержит:");
-        System.out.println(hundred + " сотен");
-        System.out.println(ten + " десятков");
-        System.out.println(one + " единиц");
+        System.out.println(hundreds + " сотен");
+        System.out.println(tens + " десятков");
+        System.out.println(ones + " единиц");
         System.out.println("Сумма его цифр = " + sum);
         System.out.println("Произведение = " + product);
 

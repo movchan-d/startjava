@@ -8,32 +8,27 @@ public class IfElseStatementTheme{
 
         if (age > 20) {
             System.out.println("Возраст " + age + " больше 20");
-        }
-        else {
+        } else {
             System.out.println("Возраст " + age + " меньше 20");
         }
 
         if (!isMale) {
             System.out.println("Женский");
-        }
-        else {
+        } else {
             System.out.println("Мужской");
         }
 
         if (heigh < 1.80) {
             System.out.println("Рост " + heigh + " меньше 1м 80см");
-        }
-        else {
+        } else {
             System.out.println("Рост " + heigh + " больше 1м 80см");
         }
 
         if (firstLetter == 'M') {
             System.out.println("Первая буква имени: " + firstLetter);
-        }
-        else if (firstLetter == 'I') {
+        } else if (firstLetter == 'I') {
             System.out.println("Первая буква имени: " + firstLetter);
-        }
-        else {
+        } else {
             System.out.println("Первая буква имени " + firstLetter + " (не M и не I)");
         }
 
@@ -44,49 +39,40 @@ public class IfElseStatementTheme{
         if (a > b) {
             System.out.println("max = " + a);
             System.out.println("min = " + b);
-        }
-        else if (a < b) {
+        } else if (a < b) {
             System.out.println("max = " + b);
             System.out.println("min = " + a);
-        }
-        else {
+        } else {
             System.out.println("a = b = " + a);
         }
 
         System.out.println("\n3. Проверка числа");
         int number = 33;
+        char sign;
         System.out.println("Исходное число:" + number);
 
         if (number != 0) {
-            // четное/нечетное
             int rem = number % 2;
-            // знак числа
-            char sign;
             if (number > 0) {
                 sign = '+';
-            }
-            else {
+            } else {
                 sign = '-';
             }
-            // вывод проверки
+
             if (rem == 0) {
                 if (sign == '+') {
                     System.out.println("Проверка: \nЧетное положительное");
-                }
-                else {
+                } else {
                     System.out.println("Проверка: \nЧетное отрицательное");
                 }
-            }
-            else {
+            } else {
                 if (sign == '+') {
                     System.out.println("Проверка: \nНечетное положительное");
-                }
-                else {
+                } else {
                     System.out.println("Проверка: \nНечетное отрицательное");
                 }
             }
-        }
-        else {
+        } else {
             System.out.println("Проверка: \nНоль");
         }
 
@@ -105,8 +91,7 @@ public class IfElseStatementTheme{
 
         if ( (num1_1 != num2_1) & (num1_2 != num2_2) & (num1_3 != num2_3) ) {
             System.out.println("Все цифры в разрядах разные");
-        }
-        else {
+        } else {
             if (num1_1 == num2_1) {
                 System.out.println("Одинаковая цифра: " + num1_1 + "\nРазряд: 1\n");
             }
@@ -123,14 +108,11 @@ public class IfElseStatementTheme{
         
         if ( code >= '0' && code <= '9') {
             System.out.println( code + " - число" );
-        }
-        else if ( code >= 'A' && code <= 'Z' ) {
+        } else if ( code >= 'A' && code <= 'Z' ) {
             System.out.println( code + " - заглавная буква");
-        }
-        else if ( code >= 'a' && code <= 'z' ) {
+        } else if ( code >= 'a' && code <= 'z' ) {
             System.out.println( code + " - маленькая буква");
-        }
-        else {
+        } else {
             System.out.println( code + " - не буква и не число" );
         }
 
@@ -143,11 +125,9 @@ public class IfElseStatementTheme{
 
         if (deposite < 100_000) {
             percent = deposite * rate1 / 100;
-        }
-        else if (deposite >= 100000 && deposite <= 300_000) {
+        } else if (deposite >= 100000 && deposite <= 300_000) {
             percent = deposite * rate2 / 100;
-        }
-        else {
+        } else {
             percent = deposite * rate3 / 100;
         }
         System.out.println("Сумма вклада: " + deposite );
@@ -163,14 +143,11 @@ public class IfElseStatementTheme{
 
         if (rateHist <= 60) {
             grade = 2;
-        }
-        else if (rateHist <= 73 ) {
+        } else if (rateHist <= 73 ) {
             grade = 3;
-        }
-        else if (rateHist <= 91) {
+        } else if (rateHist <= 91) {
             grade = 4;
-        }
-        else {
+        } else {
             grade = 5;
         }
         System.out.println(grade + " - история");
@@ -180,14 +157,11 @@ public class IfElseStatementTheme{
 
         if (rateProg <= 60) {
             grade = 2;
-        }
-        else if (rateProg <= 73 ) {
+        } else if (rateProg <= 73 ) {
             grade = 3;
-        }
-        else if (rateProg <= 91) {
+        } else if (rateProg <= 91) {
             grade = 4;
-        }
-        else {
+        } else {
             grade = 5;
         }
         System.out.println(grade + " - программирование");
@@ -206,8 +180,7 @@ public class IfElseStatementTheme{
 
         if (yearProfit > 0) {
             System.out.println("прибыль за год: +" + yearProfit + " руб.");
-        }
-        else {
+        } else {
             System.out.println("прибыль за год: " + yearProfit + " руб.");
         }
 
@@ -223,7 +196,6 @@ public class IfElseStatementTheme{
         int sumOut;
 
         numOut100 = sum / 100;
-
         if (numOut100 > numBank100) {
             numOut100 = numBank100;
         }
