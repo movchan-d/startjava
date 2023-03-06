@@ -100,13 +100,13 @@ public class VariablesTheme {
                 uLine + backSlach);
 
         System.out.println("\n8. Вывод количества сотен, десятков и единиц числа");
-        int number = 123;
-        int hundreds = number / 100;
-        int tens = (number % 100) / 10;
-        int ones = number % 10;
+        int num = 123;
+        int hundreds = num / 100;
+        int tens = (num % 100) / 10;
+        int ones = num % 10;
         int sum = hundreds + tens + ones;
         int product = hundreds * tens * ones;
-        System.out.println("Число " + number + " содержит:");
+        System.out.println("Число " + num + " содержит:");
         System.out.println(hundreds + " сотен");
         System.out.println(tens + " десятков");
         System.out.println(ones + " единиц");
