@@ -43,10 +43,10 @@ public class VariablesTheme {
         int maxInt = 2147483647;
         long maxLong = 9223372036854775807L;
 
-        System.out.println(maxByte + "\t" + maxByte++ + "\t" + maxByte-- + "\n");
-        System.out.println(maxShort  + "\t" + maxShort ++ + "\t" + maxShort -- + "\n");
-        System.out.println(maxInt  + "\t" + maxInt ++ + "\t" + maxInt -- + "\n");
-        System.out.println(maxLong  + "\t" + maxLong ++ + "\t" + maxLong -- + "\n");
+        System.out.println(maxByte + "\t" + ++maxByte + "\t" + --maxByte + "\n");
+        System.out.println(maxShort  + "\t" + ++maxShort + "\t" + ++maxShort + "\n");
+        System.out.println(maxInt  + "\t" + ++maxInt + "\t" + --maxInt + "\n");
+        System.out.println(maxLong  + "\t" + ++maxLong + "\t" + --maxLong + "\n");
 
         System.out.println("\n5. Перестановка значений переменных");
         int a = 2;
@@ -57,22 +57,20 @@ public class VariablesTheme {
         System.out.println("исходные значения переменных:\n" + "a = " + a + "\n"+ "b = " + b);
         b = a;
         a = c;
-        c = 0;
         System.out.println("новые значения переменных:\n" + "a = " + a + "\n"+ "b = " + b);
         // с помощью арифметических операций
         System.out.println("5.2 С помощью арифметических операций");
         System.out.println("исходные значения переменных:\n" + "a = " + a + "\n"+ "b = " + b);
-        c += a;
-        c += b;
-        a -= c;
-        b -= c;
-        System.out.println("новые значения переменных:\n" + "a = " + -a + "\n"+ "b = " + -b);
+        a *= b;
+        b = a / b;
+        a = a / b;
+        System.out.println("новые значения переменных:\n" + "a = " + a + "\n"+ "b = " + b);
         // с помощью побитовой операции ^
         System.out.println("5.3 С помощью побитовой операции ^");
         System.out.println("исходные значения переменных:\n" + "a = " + a + "\n"+ "b = " + b);
-        c = a ^ b;
-        a = c ^ a;
-        b = c ^ b;
+        a ^= b;
+        b ^= a;
+        a ^= b;
         System.out.println("новые значения переменных:\n" + "a = " + a + "\n"+ "b = " + b);
 
         System.out.println("\n6. Вывод символов и их кодов");
