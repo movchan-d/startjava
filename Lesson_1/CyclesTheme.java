@@ -6,7 +6,7 @@ public class CyclesTheme{
         int sumOdd = 0;
 
         do {
-            if ( i % 2 == 0 ) {
+            if (i % 2 == 0) {
                 sumEven += i;
             } else {
                 sumOdd += i;
@@ -46,7 +46,7 @@ public class CyclesTheme{
         int sum = 0;
 
         System.out.println("Исходное число: " + numSrc);
-        System.out.printf( "Исходное число в обратном порядке: " );
+        System.out.printf( "Исходное число в обратном порядке: ");
 
         i = 1;
         while (i < 5) {
@@ -62,11 +62,11 @@ public class CyclesTheme{
                 b *= 10;
                 j++;
             }
-            sum = sum + ( numSrc % a ) / b;
-            System.out.printf( "%d", ( numSrc % a ) / b);
+            sum +=(numSrc % a) / b;
+            System.out.printf( "%d", (numSrc % a) / b);
             i++;
         }
-        System.out.printf("\nСумма цифр: %d\n", sum );
+        System.out.printf("\nСумма цифр: %d\n", sum);
 
         System.out.println("\n4. Вывод чисел на консоль в несколько строк");
         int j = 1;
@@ -93,15 +93,15 @@ public class CyclesTheme{
         int remDiv = num;
 
         i = 7;
-        while (i > 0 ) {
+        while (i > 0) {
             int k = 1;
             int koef = 1;
 
-            while ( k < i) {
+            while (k < i) {
                 koef *= 10;
                 k++;
             }
-            if ( remDiv / koef == 2) {
+            if (remDiv / koef == 2) {
                 numTwo++;
             }
             remDiv = remDiv % koef;
@@ -111,7 +111,8 @@ public class CyclesTheme{
         if (numTwo % 2 == 0) {
             System.out.printf("число %d содержит %d (%s) количество двоек\n", num, numTwo, "четное");
         } else {
-            System.out.printf("число %d содержит %d (%s) количество двоек\n", num, numTwo, "нечетное");
+            System.out.printf("число %d содержит %d (%s) количество двоек\n", num, numTwo,
+                    "нечетное");
         }
 
         System.out.println("\n6. Отображение фигур в консоли");
@@ -189,7 +190,7 @@ public class CyclesTheme{
                 b *= 10;
                 j++;
             }
-            numCur = ( numSrc % a ) / b;
+            numCur = (numSrc % a) / b;
             numTrg = numTrg + numCur * b;
         }
 
