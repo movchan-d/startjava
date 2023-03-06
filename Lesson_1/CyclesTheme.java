@@ -119,8 +119,8 @@ public class CyclesTheme{
         i = 1;
         j = 1;
         // прямоугольник
-        for ( i = 1; i < 6 ; i++) {
-            for ( j = 1; j < 10 ; j++) {
+        for (i = 1; i < 6 ; i++) {
+            for (j = 1; j < 10 ; j++) {
                 System.out.printf("%s", "*");
             }
             System.out.printf("%s%n", "*");
@@ -140,7 +140,7 @@ public class CyclesTheme{
         i = 1;
         do {
             j = 1;
-            while ( j < i) {
+            while (j < i) {
                 System.out.printf("%s", "$");
                 j++;
             }
