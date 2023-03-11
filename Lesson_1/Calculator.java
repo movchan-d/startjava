@@ -1,5 +1,5 @@
-public class Calculator{
-    public static void main(String[] args){
+public class Calculator {
+    public static void main(String[] args) {
         int a = 4;
         int b = 3;
         char sign = '^';
@@ -16,11 +16,11 @@ public class Calculator{
         } else if (sign == '%') {
             result = a % b;
         } else if (sign == '^') {
-            int i = 0;
+            int degree = 0;
             result = 1;
-            while (i < b) {
+            while (degree < b) {
                 result *= a;
-                i++;
+                degree++;
             }
         }
         System.out.println( a + " " + sign + " " + b + " = " + result );

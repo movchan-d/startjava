@@ -1,4 +1,4 @@
-public class MyFirstGame{
+public class MyFirstGame {
     public static void main(String[] args) {
         int numComp = 56;
         int numUser = 80;

@@ -1,4 +1,4 @@
-public class IfElseStatementTheme{
+public class IfElseStatementTheme {
     public static void main(String[] args) {
         System.out.println("\n1. Перевод псевдокода на язык Java");
         int age = 17;
@@ -48,20 +48,20 @@ public class IfElseStatementTheme{
 
         System.out.println("\n3. Проверка числа");
         int num = -10;
-        System.out.println("Исходное число:" + num);
 
-        if (num != 0) {
-            if (num % 2 == 0 && num > 0) {
-                System.out.println("Четное положительное");
-            } else if (num % 2 == 0 && num < 0) {
-                System.out.println("Четное отрицательное");
-            } else if (num % 2 != 0 && num > 0) {
-                System.out.println("Нечетное положительное");
-            } else if (num % 2 != 0 && num < 0) {
-                System.out.println("Нечетное отрицательное");
-            }
+        if (num == 0) {
+            System.out.println(num);
         } else {
-            System.out.println("Ноль");
+            if (num % 2 == 0) {
+                System.out.println("Число " + num + " четное");
+            } else {
+                System.out.println("Число " + num + " нечетное");
+            }
+            if (num > 0) {
+                System.out.println("Число " + num + " положительное");
+            } else {
+                System.out.println("Число " + num + " отрицательное");
+            }
         }
 
         System.out.println("\n4. Поиск одинаковых цифр в числах");
@@ -76,7 +76,7 @@ public class IfElseStatementTheme{
         System.out.println("Исходные числа:");
         System.out.println(num1 + "\n" + num2);
 
-        if ( (hundreds1 != hundreds2) && (tens1 != tens2) && (ones1 != ones2) ) {
+        if (hundreds1 != hundreds2 && tens1 != tens2 && ones1 != ones2) {
             System.out.println("Все цифры в разрядах разные");
         } else {
             if (hundreds1 == hundreds2) {
@@ -105,13 +105,13 @@ public class IfElseStatementTheme{
 
         System.out.println("\n6.Подсчет суммы вклада и начисленных банком %");
         float deposite = 300_000f;
-        float percent = deposite * 10 / 100;
-
-        if (deposite < 100_000) {
-            percent = deposite * 5 / 100;
-        } else if (deposite >= 100000 && deposite <= 300_000) {
-            percent = deposite * 7 / 100;
+        float interestRate = 5f;
+        if (deposite >= 100_000 && deposite <= 300_000) {
+            interestRate = 7;
+        } else if (deposite > 300_000) {
+            interestRate = 10;
         }
+        float percent = deposite * interestRate / 100;
         System.out.println("Сумма вклада: " + deposite);
         System.out.println("Начисленный %: " +  percent);
         System.out.println("Итоговая сумма с %: " + (deposite + percent));
@@ -183,9 +183,9 @@ public class IfElseStatementTheme{
             System.out.println("Запрашиваемая сумма: " + sumInput);
             System.out.println("Номиналы в наличие: 100, 10, 1");
             System.out.println("Выдача: ");
-            System.out.println( numOutput100 + " купюр номиналом 100");
-            System.out.println( numOutput10  + " купюр номиналом 10");
-            System.out.println( numOutput1   + " купюр номиналом 1");
+            System.out.println(numOutput100 + " купюр номиналом 100");
+            System.out.println(numOutput10  + " купюр номиналом 10");
+            System.out.println(numOutput1   + " купюр номиналом 1");
             System.out.println("Выдаваемая сумма:" + sumOut);
         }
     }
