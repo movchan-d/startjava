@@ -137,11 +137,10 @@ public class CyclesTheme {
         System.out.println("\n7. Отображение ASCII-символов");
         System.out.printf("%8s%8s %n", "Dec", "Char");
         for (int i = 0; i < 128; i++) {
-            char asciiChar = (char) i;
             if (i < 48 & i % 2 != 0) {
-                System.out.printf("%8d%8s%n", i, asciiChar);
+                System.out.printf("%8d%8s%n", i, (char) i);
             } else if ( i > 96 & i < 123 & i % 2 == 0) {
-                System.out.printf("%8d%8s%n", i, asciiChar);
+                System.out.printf("%8d%8s%n", i, (char) i);
             }
         }
 
