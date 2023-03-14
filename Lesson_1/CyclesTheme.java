@@ -14,6 +14,7 @@ public class CyclesTheme {
         } while(counter <= 21);
         System.out.println("в промежутке [-10, 21] сумма четных чисел = " + sumEven +
                 ",а нечетных = " + sumOdd);
+
         System.out.println("\n2. Вывод чисел в интервале (min и max) в порядке убывания");
         int a = 10;
         int b = 5;
@@ -35,6 +36,7 @@ public class CyclesTheme {
         for (int i = max - 1; i > min; i--) {
             System.out.printf("%d", i);
         }
+
         System.out.println("\n\n3. Вывод реверсивного числа и суммы его цифр");
         int srcNum = 1234;
         int sum = 0;
@@ -46,6 +48,7 @@ public class CyclesTheme {
             srcNum /= 10;
         }
         System.out.printf("\nСумма цифр: %d\n", sum);
+
         System.out.println("\n4. Вывод чисел на консоль в несколько строк");
         counter = 1;
         for (int i = 1; i < 24; i += 2) {
@@ -62,6 +65,7 @@ public class CyclesTheme {
                 counter++;
             }
         }
+
         System.out.println("\n\n5. Проверка количества двоек на четность/нечетность");
         srcNum = 3242592;
         int countTwos = 0;
@@ -77,6 +81,7 @@ public class CyclesTheme {
         } else {
             System.out.printf("%d (%s) количество двоек\n", countTwos, "нечетное");
         }
+
         System.out.println("\n6. Отображение фигур в консоли");
         // прямоугольник
         for (int i = 1; i < 6 ; i++) {
@@ -118,6 +123,7 @@ public class CyclesTheme {
             System.out.printf("%s\n", "$");
             x++;
         } while (x < 3);
+
         System.out.println("\n7. Отображение ASCII-символов");
         System.out.printf("%8s%8s %n", "Dec", "Char");
         for (int i = 0; i < 128; i++) {
@@ -127,6 +133,7 @@ public class CyclesTheme {
                 System.out.printf("%8d%8s%n", i, (char) i);
             }
         }
+
         System.out.println("\n8. Проверка, является ли число палиндромом");
         srcNum = 1_234_321;
         int multiplier = 1_000_000;
@@ -142,6 +149,7 @@ public class CyclesTheme {
         } else {
             System.out.printf("Число %d не является палиндромом\n", srcNum);
         }
+
         System.out.println("\n9. Определение, является ли число счастливым");
         srcNum = 135234;
         int firstHalf = srcNum / 1000;
@@ -163,6 +171,7 @@ public class CyclesTheme {
         } else {
             System.out.println(srcNum + " - это не счастливое число :(");
         }
+        
         System.out.println("\n10. Вывод таблицы умножения Пифагора");
         System.out.printf("\t" + "ТАБЛИЦА ПИФАГОРА\n");
         System.out.printf("   |%3s %2s %2s %2s %2s %2s %2s %2s%n", "2","3","4","5","6","7","8","9");
