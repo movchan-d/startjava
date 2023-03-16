@@ -41,32 +41,35 @@ public class CyclesTheme {
         int srcNum = 1234;
         int sum = 0;
         System.out.println("Исходное число: " + srcNum);
-        System.out.printf("Исходное число в обратном порядке: ");
+        System.out.print("Исходное число в обратном порядке: ");
         while (srcNum > 0) {
-            System.out.printf("%d", srcNum % 10);
-            sum += srcNum % 10;
+            int currentNum = srcNum % 10;
+            System.out.printf("%d", currentNum);
+            sum += currentNum;
             srcNum /= 10;
         }
         System.out.printf("\nСумма цифр: %d\n", sum);
 
         System.out.println("\n4. Вывод чисел на консоль в несколько строк");
-        counter = 1;
+        counter = 0;
         for (int i = 1; i < 24; i += 2) {
             System.out.printf("%4d", i);
-            if (counter % 5 == 0) {
-                System.out.printf("%n");
+            counter++;
+
+            if (counter == 5) {
+                System.out.println();
                 counter = 0;
             }
-            counter++;
         }
-        if (counter > 0) {
-            while (counter < 6) {
+        if (counter != 0) {
+            int zeros = 5 - counter;
+            for (int i = 0; i < zeros; i++) {
                 System.out.printf("%4d", 0);
-                counter++;
             }
         }
+        System.out.println();
 
-        System.out.println("\n\n5. Проверка количества двоек на четность/нечетность");
+        System.out.println("\n5. Проверка количества двоек на четность/нечетность");
         srcNum = 3242592;
         int countTwos = 0;
         System.out.printf("Число %d содержит ", srcNum);
@@ -86,43 +89,45 @@ public class CyclesTheme {
         // прямоугольник
         for (int i = 1; i < 6 ; i++) {
             for (int j = 1; j < 10 ; j++) {
-                System.out.printf("%s", "*");
+                System.out.print("*");
             }
-            System.out.printf("%s%n", "*");
+            System.out.println();
         }
+        System.out.println();
+
         // прямоугольный треугольник
-        int x = 5;
-        int y = 0;
-        while (x > 0) {
-            y = x - 1;
-            while (y > 0) {
-                System.out.printf("%s", "#");
-                y--;
+        int lineCount = 5;
+ 
+        while(lineCount > 0){
+            int symbolCount = lineCount;
+            while(symbolCount > 0){
+                System.out.print("#");
+                symbolCount--;
             }
-            System.out.printf("%s\n", "#");
-            x--;
+            System.out.println();
+            lineCount--;
         }
+        System.out.println();
+
         // равносторонний треугольник
-        x = 1;
+        lineCount = 1;
         do {
-            y = 1;
-            while (y < x) {
-                System.out.printf("%s", "$");
-                y++;
-            }
-            System.out.printf("%s\n", "$");
-            x++;
-        } while(x < 4);
-        x = 1;
-        do {
-            y = 2;
-            while (y > x) {
-                System.out.printf("%s", "$");
-                y--;
-            }
-            System.out.printf("%s\n", "$");
-            x++;
-        } while (x < 3);
+            int symbolCount = 0;
+            if (lineCount == 4) {
+                symbolCount = 2;
+            } else if (lineCount == 5) {
+                symbolCount = 4;
+            }             
+            do {
+                System.out.print("$");
+                symbolCount++;
+                
+            } while (symbolCount < lineCount);
+            System.out.println();
+
+            lineCount++;
+        } while ( lineCount <= 5);
+        System.out.println();
 
         System.out.println("\n7. Отображение ASCII-символов");
         System.out.printf("%8s%8s %n", "Dec", "Char");
@@ -136,15 +141,14 @@ public class CyclesTheme {
 
         System.out.println("\n8. Проверка, является ли число палиндромом");
         srcNum = 1_234_321;
-        int multiplier = 1_000_000;
-        int trgNum = 0;
-        counter = srcNum;
-        while (counter > 0) {
-            trgNum += (counter % 10) * multiplier;
-            counter /= 10;
-            multiplier /= 10;
+        int reverseNum = 0;
+        int copySrcNum = srcNum;
+
+        while (copySrcNum != 0) {
+            reverseNum = reverseNum * 10 + copySrcNum % 10;
+            copySrcNum /= 10;
         }
-        if (srcNum == trgNum) {
+        if (srcNum == reverseNum) {
             System.out.printf("Число %d является палиндромом\n", srcNum);
         } else {
             System.out.printf("Число %d не является палиндромом\n", srcNum);
@@ -175,16 +179,16 @@ public class CyclesTheme {
         System.out.println("\n10. Вывод таблицы умножения Пифагора");
         System.out.printf("\t" + "ТАБЛИЦА ПИФАГОРА\n");
         System.out.printf("   |%3s %2s %2s %2s %2s %2s %2s %2s%n", "2","3","4","5","6","7","8","9");
-        System.out.printf("----------------------------");
-        y = 2;
-        while (y < 10) {
-            System.out.printf("\n %d |", y);
-            x = 2;
-            while (x < 10) {
-                System.out.printf("%3d", y * x);
-                x++;
+        System.out.print("----------------------------");
+        lineCount = 2;
+        while (lineCount < 10) {
+            System.out.printf("\n %d |", lineCount);
+            int columnCount = 2;
+            while (columnCount < 10) {
+                System.out.printf("%3d", lineCount * columnCount);
+                columnCount++;
             }
-            y++;
+            lineCount++;
         }
     }
 }

@@ -1,4 +1,4 @@
-public class MyFirstGame{
+public class MyFirstGame {
     public static void main(String[] args) {
         int secretNum = 56;
         int playerNum = 80;
@@ -6,8 +6,7 @@ public class MyFirstGame{
             if (playerNum > secretNum) {
                 System.out.printf("число %d больше %d\n", playerNum , secretNum);
                 playerNum--;
-            }
-            else {
+            } else {
                 System.out.printf("число %d больше %d\n", playerNum , secretNum);
                 playerNum++;
             }
