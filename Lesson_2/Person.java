@@ -4,8 +4,7 @@ public class Person {
     float height = 1.80f;
     float weight = 85f;
     int age = 30;
-    // Methods
-    // идти, сидеть, бежать, говорить, учить Java
+
     void go() {
         System.out.println("Идет");
     }
