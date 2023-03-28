@@ -13,7 +13,6 @@ public class WolfTest {
         if (myWolf.getAge() != 0) {
             System.out.println("Возраст: " + myWolf.getAge() + " лет");
         }
-
         myWolf.go();
         myWolf.sit();
         myWolf.run();

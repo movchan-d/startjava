@@ -8,15 +8,19 @@ public class Person {
     void go() {
         System.out.println("Идет");
     }
+
     void sit() {
         System.out.println("Сидит");
     }
+
     void run() {
         System.out.println("Бежит");
     }
+
     void speak() {
         System.out.println("Говорит");
     }
+    
     void learnJava() {
         System.out.println("Учит Java");
     }
