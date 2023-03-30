@@ -5,20 +5,20 @@ public class Jaeger {
     private float weight;
     private int speed;
     private int strength;
-    private int armour;
+    private int armor;
 
     public Jaeger() {
 
     }
 
-    public Jaeger(String modelName, String mark, float height, float weight, int speed, int strength, int armour) {
+    public Jaeger(String modelName, String mark, float height, float weight, int speed, int strength, int armor) {
         this.modelName = modelName;
         this.mark = mark;
         this.height = height;
         this.weight = weight;
         this.speed = speed;
         this.strength = strength;
-        this.armour = armour;
+        this.armor = armor;
     }
 
     public void setModelName(String modelName) {
@@ -69,11 +69,11 @@ public class Jaeger {
         return strength;
     }
 
-    public void setArmour(int armour) {
-        this.armour = armour;
+    public void setArmor(int armor) {
+        this.armor = armor;
     }
 
-    public int getArmour() {
-        return armour;
+    public int getArmor() {
+        return armor;
     }
 }
