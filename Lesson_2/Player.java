@@ -2,6 +2,10 @@ public class Player {
     private String name;
     private int number;
 
+    public String getName() {
+        return name;
+    }
+    
     public Player(String name) {
         this.name = name;
     }
@@ -12,9 +16,5 @@ public class Player {
 
     public int getNumber() {
         return number;
-    }
-    
-    public String getName() {
-        return name;
     }
 }

@@ -1,3 +1,6 @@
+import java.util.zip.CheckedInputStream;
+import java.util.Scanner;
+
 public class GuessNumber {
     private Player player1;
     private Player player2;
@@ -16,7 +19,7 @@ public class GuessNumber {
     public Player getPlayer2() {
         return player2;
     }
-    
+
     public boolean checkPlayerNumber(Player player) {
         boolean isNotGuessed = true;
         int playerNumber = player.getNumber();
@@ -26,8 +29,26 @@ public class GuessNumber {
             System.out.println("Число " + playerNumber + " меньше загаданного числа");
         } else {
             isNotGuessed = false;
-            System.out.println("Игрок " + player.getName() + " победил! Загаданное число: " + secretNumber);
+            System.out.println("Игрок " + player.getName() + " победил! Загаданное число: "
+                    + secretNumber);
         }
         return isNotGuessed;
+    }
+    
+    public void startGame(Scanner scan) {
+        Player player = getPlayer1();
+        int count = 1;
+        boolean isNotGuessed = true;
+        while (isNotGuessed) {
+            if (count % 2 != 0) {
+                player = getPlayer1();
+            } else {
+                player = getPlayer2();
+            }
+            System.out.println("Игрок " + player.getName() + ", введите число:");
+            player.setNumber(scan.nextInt());
+            isNotGuessed = checkPlayerNumber(player);
+            count++;
+        }
     }
 }
