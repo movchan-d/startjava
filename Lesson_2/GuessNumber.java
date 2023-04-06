@@ -1,54 +1,34 @@
-import java.util.zip.CheckedInputStream;
 import java.util.Scanner;
 
 public class GuessNumber {
     private Player player1;
     private Player player2;
-    private int secretNumber;   // Число, загаданное компьютером
 
     public GuessNumber(Player player1, Player player2) {
         this.player1 = player1;
         this.player2 = player2;
-        this.secretNumber = (int) (1 + (Math.random() * 100));
     }
 
-    public Player getPlayer1() {
-        return player1;
-    }
+    public void start(Scanner scan) {
+        int secretNumber = (int) (1 + (Math.random() * 100));
+        int currentNumber;
+        Player currentPlayer = player1;
 
-    public Player getPlayer2() {
-        return player2;
-    }
+        do {
+            System.out.println("Игрок " + currentPlayer.getName() + ", введите число:");
+            currentNumber = scan.nextInt();
 
-    public boolean checkPlayerNumber(Player player) {
-        boolean isNotGuessed = true;
-        int playerNumber = player.getNumber();
-        if (playerNumber > secretNumber) {
-            System.out.println("Число " + playerNumber + " больше загаданного числа");
-        } else if (playerNumber < secretNumber) {
-            System.out.println("Число " + playerNumber + " меньше загаданного числа");
-        } else {
-            isNotGuessed = false;
-            System.out.println("Игрок " + player.getName() + " победил! Загаданное число: "
-                    + secretNumber);
-        }
-        return isNotGuessed;
-    }
-    
-    public void startGame(Scanner scan) {
-        Player player = getPlayer1();
-        int count = 1;
-        boolean isNotGuessed = true;
-        while (isNotGuessed) {
-            if (count % 2 != 0) {
-                player = getPlayer1();
+            if (currentNumber == secretNumber) {
+                System.out.println("Верно! Игрок " + currentPlayer.getName() + " победил!");
             } else {
-                player = getPlayer2();
+                if ( currentNumber > secretNumber) {
+                    System.out.println("Число " + currentNumber + " больше загаданного числа");
+                } else {
+                    System.out.println("Число " + currentNumber  + " меньше загаданного числа");
+                }
+                // Смена игрока
+                currentPlayer = currentPlayer == player1 ? player2 : player1;
             }
-            System.out.println("Игрок " + player.getName() + ", введите число:");
-            player.setNumber(scan.nextInt());
-            isNotGuessed = checkPlayerNumber(player);
-            count++;
-        }
+        } while (secretNumber != currentNumber);
     }
 }
