@@ -11,24 +11,23 @@ public class GuessNumber {
 
     public void start(Scanner scan) {
         int secretNumber = (int) (1 + (Math.random() * 100));
-        int currentNumber;
-        Player currentPlayer = player1;
-
+        int playerNumber;
+        Player player = player1;
         do {
-            System.out.println("Игрок " + currentPlayer.getName() + ", введите число:");
-            currentNumber = scan.nextInt();
+            System.out.println("Игрок " + player.getName() + ", введите число:");
+            playerNumber = scan.nextInt();
 
-            if (currentNumber == secretNumber) {
-                System.out.println("Верно! Игрок " + currentPlayer.getName() + " победил!");
+            if (playerNumber == secretNumber) {
+                System.out.println("Верно! Игрок " + player.getName() + " победил!");
             } else {
-                if ( currentNumber > secretNumber) {
-                    System.out.println("Число " + currentNumber + " больше загаданного числа");
+                if ( playerNumber > secretNumber) {
+                    System.out.println("Число " + playerNumber + " больше загаданного числа");
                 } else {
-                    System.out.println("Число " + currentNumber  + " меньше загаданного числа");
+                    System.out.println("Число " + playerNumber  + " меньше загаданного числа");
                 }
                 // Смена игрока
-                currentPlayer = currentPlayer == player1 ? player2 : player1;
+                player = player == player1 ? player2 : player1;
             }
-        } while (secretNumber != currentNumber);
+        } while (secretNumber != playerNumber);
     }
 }
