@@ -124,16 +124,12 @@ public class ArrayTheme {
         System.out.println("6. Копирование не пустых строк");
 
         String[] arr1 = new String[]{"    ", "AA", "", "BBB", "CC", "D", "    ", "E", "FF", "G", ""};
-
-        // создать массив2 размерностью = количеству непустых элементов массива1
         String[] arr2 = new String[countNonEmptyStrings(arr1)];
 
-        // копировать непустые элементы в новый массив кусками непустых
         int index2 = 0;
         for (int i = 0; i < arr1.length; i++) {
             int j = i;
             if (!arr1[i].trim().isEmpty()) {
-                // вычислить количество не пустых элементов подряд
                 int countNonEmptyStrings = 1;
                 while (!arr1[j + 1].trim().isEmpty()) {
                     countNonEmptyStrings ++;

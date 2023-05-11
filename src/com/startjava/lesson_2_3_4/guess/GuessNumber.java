@@ -22,10 +22,10 @@ public class GuessNumber {
 
         Player currentPlayer = player1;
 
-        System.out.println("У каждого игрока по " + Player.MAX_COUNT_ATTEMPTS + " попыток");
+        System.out.println("У каждого игрока по " + Player.MAX_ATTEMPTS_COUNT + " попыток");
 
         do {
-            if (currentPlayer.getCountAttempts() < Player.MAX_COUNT_ATTEMPTS) {
+            if (currentPlayer.getAttemptsCount() < Player.MAX_ATTEMPTS_COUNT) {
                 System.out.print("Игрок " + currentPlayer.getName() + ", введите число: ");
                 playerNumber = scan.nextInt();
                 scan.nextLine();
@@ -33,7 +33,7 @@ public class GuessNumber {
 
                 if (playerNumber == secretNumber) {
                     System.out.println("Игрок " + currentPlayer.getName() + " угадал число " + secretNumber +
-                            " с " + currentPlayer.getCountAttempts() + " попытки");
+                            " с " + currentPlayer.getAttemptsCount() + " попытки");
                     break;
                 }
 
@@ -43,13 +43,13 @@ public class GuessNumber {
                     System.out.println("Число " + playerNumber + " меньше загаданного числа");
                 }
             }
-            if (currentPlayer.getCountAttempts() == Player.MAX_COUNT_ATTEMPTS) {
+            if (currentPlayer.getAttemptsCount() == Player.MAX_ATTEMPTS_COUNT) {
                 System.out.println("У " + currentPlayer.getName() + " закончились попытки");
             }
 
             // Смена игрока
             currentPlayer = currentPlayer == player1 ? player2 : player1;
-        } while (currentPlayer.getCountAttempts() < Player.MAX_COUNT_ATTEMPTS);
+        } while (currentPlayer.getAttemptsCount() < Player.MAX_ATTEMPTS_COUNT);
 
         if (!(player1.getNumber() == secretNumber) && !(player2.getNumber() == secretNumber)) {
             System.out.println("Никто не угадал");
