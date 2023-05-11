@@ -26,11 +26,12 @@ public class GuessNumber {
 
         do {
             if (currentPlayer.getAttemptsCount() < Player.MAX_ATTEMPTS_COUNT) {
+                currentPlayer.addAttempts();
+
                 System.out.print("Игрок " + currentPlayer.getName() + ", введите число: ");
                 playerNumber = scan.nextInt();
                 scan.nextLine();
                 currentPlayer.setPlayerNumber(playerNumber);
-                currentPlayer.addAttempts();
 
                 if (playerNumber == secretNumber) {
                     System.out.println("Игрок " + currentPlayer.getName() + " угадал число " + secretNumber +
