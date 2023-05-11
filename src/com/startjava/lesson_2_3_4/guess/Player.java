@@ -28,8 +28,11 @@ public class Player {
     }
 
     public void setPlayerNumber(int number) {
-        attemptsCount++;
         numbers[attemptsCount - 1] = number;
+    }
+
+    public void addAttempts() {
+        attemptsCount++;
     }
 
     public int getNumber() {

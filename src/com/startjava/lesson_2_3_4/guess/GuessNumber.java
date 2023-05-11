@@ -30,6 +30,7 @@ public class GuessNumber {
                 playerNumber = scan.nextInt();
                 scan.nextLine();
                 currentPlayer.setPlayerNumber(playerNumber);
+                currentPlayer.addAttempts();
 
                 if (playerNumber == secretNumber) {
                     System.out.println("Игрок " + currentPlayer.getName() + " угадал число " + secretNumber +
