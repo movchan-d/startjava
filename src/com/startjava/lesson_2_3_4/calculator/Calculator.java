@@ -1,39 +1,34 @@
 package com.startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
-    public int getResult(int firstNumber, int secondNumber, char sign) {
-        int result = 0;
+    public double calculate(String mathExpression) {
+        // Конвертируем строки в математическое выражение
+        String[] strings = mathExpression.split(" ");
+        int firstNumber = Integer.parseInt(strings[0]);
+        int secondNumber = Integer.parseInt(strings[2]);
+        char sign = strings[1].charAt(0);
+
+        double result = 0;
         switch(sign) {
             case '+' :
-                result = firstNumber + secondNumber;
+                result = Math.addExact(firstNumber, secondNumber);
                 break;
             case '-':
-                result = firstNumber - secondNumber;
+                result = Math.subtractExact(firstNumber, secondNumber);
                 break;
             case '*' :
-                result = firstNumber * secondNumber;
+                result = Math.multiplyExact(firstNumber, secondNumber);
                 break;
             case '/' :
-                result = firstNumber / secondNumber;
+                result = (double) firstNumber / (double) secondNumber;
                 break;
             case '%' :
                 result = firstNumber % secondNumber;
                 break;
             case '^' :
-                result = 1;
-                for (int i = 0; i < secondNumber; i++) {
-                    result *= firstNumber;
-                }
+                result = Math.pow(firstNumber, secondNumber);
                 break;
         }
         return result;
-    }
-    
-    public boolean isSignCorrect(char sign) {
-        boolean isSignCorrect = true;
-        if (sign != '+' && sign != '-' && sign != '*' && sign != '/' && sign != '%' && sign != '^') {
-            isSignCorrect = false;
-        }
-        return isSignCorrect;
     }
 }
