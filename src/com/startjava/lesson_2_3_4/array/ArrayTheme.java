@@ -1,7 +1,6 @@
 package com.startjava.lesson_2_3_4.array;
 
 import java.util.Arrays;
-import java.util.Random;
 
 public class ArrayTheme {
     static int len;
@@ -23,14 +22,11 @@ public class ArrayTheme {
         printIntArray(numbers);
 
         // перестановка значений в обратном порядке
-        int middleCellElement = len / 2;
-        for (int i = 0; i < middleCellElement; i++) {
-            len--;
-            int tempNum = numbers[i];
-            numbers[i] = numbers[len];
-            numbers[len] = tempNum;
+        for (int i = 0; i < len / 2; i++) {
+            int tmp = numbers[i];
+            numbers[i] = numbers[--len];
+            numbers[len] = tmp;
         }
-
         // отображение массива после модификации
         printIntArray(numbers);
     }
@@ -103,16 +99,24 @@ public class ArrayTheme {
 
         int[] uniqueInts = new int[30];
         len = uniqueInts.length;
-        Random rnd = new Random();
-        for (int i = 0; i < len; i++) {
-            int num = rnd.nextInt(40) + 60;
-            while (isUnique(uniqueInts, num)) {
-                num = rnd.nextInt(40) + 60;
+
+        // Заполнение массива случайными уникальными числами
+        int index = 0;
+        while (index < len){
+            int num = (int)(Math.random() * 40 + 60);
+            if (isUnique(uniqueInts, num)){
+                uniqueInts[index++] = num;
             }
-            uniqueInts[i] = num;
         }
+
+        // Печать отсортированного массива
         Arrays.sort(uniqueInts);
-        printIntArray(uniqueInts);
+        for (int i = 0; i < uniqueInts.length; i++) {
+            System.out.print(uniqueInts[i] + " ");
+            if ((i + 1) % 10 == 0) {
+                System.out.println();
+            }
+        }
     }
 
     private static void copyNonEmptyLines() {
@@ -162,10 +166,10 @@ public class ArrayTheme {
     private static boolean isUnique(int[] ints, int num) {
         for (int currentNum : ints) {
             if (currentNum == num) {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     private static void printIntArray(int[] ints) {
