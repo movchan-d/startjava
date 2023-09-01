@@ -122,7 +122,8 @@ public class ArrayTheme {
     private static void copyNonEmptyLines() {
         System.out.println("\n6. Копирование не пустых строк");
 
-        String[] strings = {"    ", "AA", "", "BBB", "CC", "D", "    ", "E", "FF", "G", ""};
+        String[] strings = {"    ", "AA", "", "BBB", "CC", "D", "    ", "E", "FF", "G", "F"};
+        int len = strings.length;
         // вычисляем количество непустых строк и создаем второй массив
         int count = 0;
         for (String s : strings) {
@@ -133,19 +134,15 @@ public class ArrayTheme {
         String[] nonEmptyStrings = new String[count];
 
         // копируем непустые последовательности из первого массива во второй
-        int index = 0;
-        int start = 0;
-        for (int i = 0; i < strings.length; i++) {
+        int index = 0;      // индекс для записи во второй массив
+        int startIndex = 0; // индекс начала последовательности непустых строк
+
+        for (int i = 0; i < len; i++) {
             if (strings[i].trim().isBlank()) {
-                if (start != i) {
-                    System.arraycopy(strings, start, nonEmptyStrings, index, i - start);
-                    index += i - start;
-                }
-                start = i + 1;
+                System.arraycopy(strings, startIndex, nonEmptyStrings, index, i - startIndex);
+                index += i - startIndex;
+                startIndex = i + 1;
             }
-        }
-        if (start != strings.length) {
-            System.arraycopy(strings, start, nonEmptyStrings, index, strings.length - start);
         }
         // выводим оба массива на экран
         System.out.println("Исходный массив: " + Arrays.toString(strings));

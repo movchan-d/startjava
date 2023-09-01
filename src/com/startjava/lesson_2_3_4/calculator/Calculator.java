@@ -1,33 +1,32 @@
 package com.startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
-    public double calculate(String mathExpression) {
+    public static double calculate(String mathExpression) {
         // Конвертируем строки в математическое выражение
-        String[] strings = mathExpression.split(" ");
-        int firstNumber = Integer.parseInt(strings[0]);
-        int secondNumber = Integer.parseInt(strings[2]);
-        char sign = strings[1].charAt(0);
-
+        String[] partsExpression = mathExpression.split(" ");
         double result = 0;
-        switch(sign) {
-            case '+' :
-                result = Math.addExact(firstNumber, secondNumber);
-                break;
-            case '-':
-                result = Math.subtractExact(firstNumber, secondNumber);
-                break;
-            case '*' :
-                result = Math.multiplyExact(firstNumber, secondNumber);
-                break;
-            case '/' :
-                result = (double) firstNumber / (double) secondNumber;
-                break;
-            case '%' :
-                result = firstNumber % secondNumber;
-                break;
-            case '^' :
-                result = Math.pow(firstNumber, secondNumber);
-                break;
+
+        try {
+            int number1 = Integer.parseInt(partsExpression[0]);
+            int number2 = Integer.parseInt(partsExpression[2]);
+            char sign = partsExpression[1].charAt(0);
+
+            if (number1 <= 0 || number2 <=0) {
+                throw new RuntimeException("Числа должны быть положительными");
+            }
+            return switch (sign) {
+                case '+' -> Math.addExact(number1, number2);
+                case '-' -> Math.subtractExact(number1, number2);
+                case '*' -> Math.multiplyExact(number1, number2);
+                case '/' -> (double) number1 / (double) number2;
+                case '%' -> number1 % number2;
+                case '^' -> Math.pow(number1, number2);
+                default -> throw new RuntimeException("Некорректный оператор");
+            };
+        } catch (NumberFormatException e) {
+            System.out.println("Некорректный формат целого числа");
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
         }
         return result;
     }

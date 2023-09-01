@@ -6,14 +6,13 @@ import java.util.Scanner;
 public class CalculatorTest {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        Calculator calculator = new Calculator();
 
         String answer = "yes";
         do {
             if (answer.equals("yes")) {
                 System.out.print("Введите математическое выражение: ");
                 String mathExpression = scan.nextLine();
-                printResult(calculator.calculate(mathExpression));
+                printResult(Calculator.calculate(mathExpression));
             }
             System.out.print("Хотите продолжить вычисления? [yes/no]: ");
             answer = scan.nextLine();
@@ -25,11 +24,8 @@ public class CalculatorTest {
 
     private static void printResult(double result) {
         DecimalFormat decimalFormat = new DecimalFormat("#.###");
-        String formattedResult = decimalFormat.format(result);
-        if (formattedResult.endsWith(".000")) {
-            System.out.println("Результат: " + (int) result);
-        } else {
-            System.out.println("Результат: " + formattedResult);
-        }
+        String formattedResult = (decimalFormat.format(result).endsWith(".000")) ?
+                String.valueOf((int) result) : decimalFormat.format(result);
+        System.out.println("Результат: " + formattedResult);
     }
 }
