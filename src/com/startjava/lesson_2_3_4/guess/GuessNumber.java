@@ -15,7 +15,7 @@ public class GuessNumber {
         }
     }
 
-    public void start(Scanner scan) {
+    public void start() {
         int roundCounts = 1;
 
         shufflePlayers(players);
@@ -105,7 +105,6 @@ public class GuessNumber {
     }
 
     private void printPlayersAttempts() {
-        int i = 0;
         for (Player player: players ) {
             player.printAttempts();
         }
