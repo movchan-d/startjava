@@ -21,9 +21,6 @@ public class CalculatorTest {
             System.out.print("Хотите продолжить вычисления? [yes/no]: ");
             answer = scan.nextLine();
         } while (!answer.equals("no"));
-
-        System.out.println("Калькулятор закрылся");
-        scan.close();
     }
 
     private static void printResult(String mathExpression, double result) {
