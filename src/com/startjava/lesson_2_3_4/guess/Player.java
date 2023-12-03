@@ -3,49 +3,38 @@ package com.startjava.lesson_2_3_4.guess;
 import java.util.Arrays;
 
 public class Player {
-    public static final int MAX_ATTEMPTS_COUNT = 3;
+
     private final String name;
-    private final int[] numbers = new int[MAX_ATTEMPTS_COUNT];
-    private int attemptsCount;
+    private int attempt;
+    private final int[] numbers = new int[GuessNumber.MAX_ATTEMPTS_COUNT];
 
     public Player(String name) {
         this.name = name;
-    }
-
-    public void refreshAttempts() {
-        for (int i = 0; i < attemptsCount; i++) {
-            Arrays.fill(numbers, i, i + 1, 0);
-        }
-        attemptsCount = 0;
-    }
-
-    public int getAttemptsCount() {
-        return attemptsCount;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setPlayerNumber(int number) {
-        addAttempts();
-        numbers[attemptsCount - 1] = number;
+    public int getAttempt() {
+        return attempt;
     }
 
-    public void addAttempts() {
-        attemptsCount++;
+    public int getNum() {
+        return numbers[attempt - 1];
     }
 
-    public int getNumber() {
-        return numbers[attemptsCount - 1];
+    public int[] getNumbers() {
+        return numbers;
     }
 
-    public void printAttempts() {
-        int[] attempts = Arrays.copyOf(numbers, attemptsCount);
-        System.out.print("Попытки игрока " + name + ": ");
-        for (int num: attempts) {
-            System.out.print(num + " ");
-        }
-        System.out.println();
+    public void addNumber(int number) {
+        numbers[attempt] = number;
+        attempt++;
+    }
+
+    public void refreshAttempts() {
+        Arrays.fill(numbers, 0, attempt, 0);
+        attempt = 0;
     }
 }

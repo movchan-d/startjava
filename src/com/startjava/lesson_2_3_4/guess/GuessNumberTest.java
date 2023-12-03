@@ -3,38 +3,33 @@ package com.startjava.lesson_2_3_4.guess;
 import java.util.Scanner;
 
 public class GuessNumberTest {
-    private static Player player1;
-    private static Player player2;
-    private static Player player3;
+    public static final int COUNT = 3;
 
     public static void main(String[] args) {
-        System.out.println("Игра началась!");
-        createPlayers();
+        Scanner console = new Scanner(System.in);
+        System.out.println("Игра началась");
+        String[] names = createPlayers(console);
 
-        Scanner scan = new Scanner(System.in);
         String answer = "yes";
         do {
             if (answer.equals("yes")) {
-                GuessNumber game = new GuessNumber(player1, player2, player3);
+                GuessNumber game = new GuessNumber(names);
                 game.start();
             }
             System.out.print("Хотите продолжить игру? [yes/no]: ");
-            answer = scan.nextLine();
+            answer = console.nextLine();
         } while (!answer.equals("no"));
 
         System.out.println("Игра завершена!");
-        scan.close();
+        console.close();
     }
 
-    public static void createPlayers() {
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Введите имена игроков");
-
-        System.out.print("Игрок 1: ");
-        player1 = new Player(scan.nextLine());
-        System.out.print("Игрок 2: ");
-        player2 = new Player(scan.nextLine());
-        System.out.print("Игрок 3: ");
-        player3 = new Player(scan.nextLine());
+    public static String[] createPlayers(Scanner console) {
+        String[] names = new String[COUNT];
+        for (int i = 0; i < COUNT; i++) {
+            System.out.print("Введите имя игрока: ");
+            names[i] = console.nextLine();
+        }
+        return names;
     }
 }
