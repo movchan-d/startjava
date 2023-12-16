@@ -5,8 +5,9 @@ import java.util.Arrays;
 public class Player {
 
     private final String name;
+    private final int[] nums = new int[GuessNumber.MAX_ATTEMPTS_LIMIT];
     private int attempt;
-    private final int[] numbers = new int[GuessNumber.MAX_ATTEMPTS_COUNT];
+    private int score;
 
     public Player(String name) {
         this.name = name;
@@ -21,20 +22,35 @@ public class Player {
     }
 
     public int getNum() {
-        return numbers[attempt - 1];
+        return nums[attempt - 1];
     }
 
-    public int[] getNumbers() {
-        return numbers;
+    public int getScore() {
+        return score;
     }
 
-    public void addNumber(int number) {
-        numbers[attempt] = number;
-        attempt++;
+    public int[] getNums() {
+        return Arrays.copyOf(nums, attempt);
     }
 
-    public void refreshAttempts() {
-        Arrays.fill(numbers, 0, attempt, 0);
+    public boolean addNum(int num) {
+        if (num <= 0 || num > 100) {
+            return false;
+        }
+        nums[attempt++] = num;
+        return true;
+    }
+
+    public void clear() {
+        Arrays.fill(nums, 0, attempt, 0);
         attempt = 0;
+    }
+
+    public void addScore() {
+        score++;
+    }
+
+    public void clearScore() {
+        score = 0;
     }
 }

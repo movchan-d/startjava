@@ -7,29 +7,26 @@ import java.util.Scanner;
 
 public class GuessNumber {
 
-    public static final int MAX_ATTEMPTS_COUNT = 3;
+    static final int MAX_ATTEMPTS_LIMIT = 3;
+    static final int ROUNDS = 3;
     private final Player[] players = new Player[GuessNumberTest.COUNT];
+    private int secretNum;
 
     public GuessNumber(String[] names) {
-        int i = 0;
-        for (String name: names) {
-            players[i] = new Player(name);
-            i++;
+        for (int i = 0; i < GuessNumberTest.COUNT; i++) {
+            players[i] = new Player(names[i]);
         }
     }
 
     public void start() {
-        int roundCounts = 1;
-
-        shufflePlayers(players);
-        do {
-            System.out.println("Раунд " + roundCounts);
-            System.out.println("У каждого игрока по " + MAX_ATTEMPTS_COUNT + " попытки(ок)");
-
+        for (int i = 1; i <= ROUNDS; i++) {
+            System.out.println("Раунд " + i);
+            shufflePlayers(players);
+            secretNum = generateSecretNum();
             playRound();
-            printPlayersAttempts();
-            roundCounts++;
-        } while (roundCounts < 4);
+        }
+        determineWinner();
+        clearScores();
     }
 
     private void shufflePlayers(Player[] players) {
@@ -42,64 +39,44 @@ public class GuessNumber {
         }
     }
 
-    private void playRound() {
-        int secretNum = generateSecretNumber();
-
-        for (Player player: players) {
-            player.refreshAttempts();
-        }
-
-        boolean isContinued = true;
-        do {
-            for (Player player: players) {
-                if (player.getAttempt() < MAX_ATTEMPTS_COUNT ) {
-                    inputPlayerNumber(player);
-                    if (player.getNum() == secretNum) {
-                        System.out.println("Игрок " + player.getName() + " угадал число " + secretNum +
-                                " с " + player.getAttempt() + " попытки");
-                        isContinued = false;
-                        break;
-                    }
-                    String comparisonSign = (player.getNum() > secretNum) ? "больше" : "меньше";
-                    System.out.println("Число " + player.getNum() + " " + comparisonSign + " загаданного числа");
-                }
-                if (player.getAttempt() == MAX_ATTEMPTS_COUNT) {
-                    System.out.println("У " + player.getName() + " закончились попытки");
-                    isContinued = false;
-                }
-            }
-        } while(isContinued);
-
-        if (!(players[0].getNum() == secretNum) &&
-                !(players[1].getNum() == secretNum) &&
-                !(players[2].getNum() == secretNum)) {
-            System.out.println("Никто не угадал");
-        }
-    }
-
-    private int generateSecretNumber() {
+    private int generateSecretNum() {
         Random rnd = new Random();
         return rnd.nextInt(100 + 1);
     }
 
-    private void inputPlayerNumber(Player player) {
-        int playerNumber;
+    private void playRound() {
+        boolean isWin = false;
+        for (int i = 0; i < MAX_ATTEMPTS_LIMIT; i++) {
+            for (Player player: players) {
+                inputPlayerNumber(player);
+                if (isGuessed(player)) {
+                    player.addScore();
+                    isWin = true;
+                    break;
+                }
+            }
+            if (isWin) {
+                break;
+            }
+        }
+        if (!isWin) {
+            System.out.println("Никто не угадал");
+        }
+        printPlayersAttempts();
+        clear();
+    }
 
+    private void inputPlayerNumber(Player player) {
         Scanner console = new Scanner(System.in);
         System.out.print("Игрок " + player.getName() + ", введите число: ");
 
         boolean continueInput = true;
         do {
             try {
-                playerNumber = console.nextInt();
-                console.nextLine();
-                if (playerNumber <= 0 || playerNumber > 100) {
-                    System.out.print("Число " + playerNumber + " не входит в полуинтервал (0, 100]. " +
-                            "Введите число: ");
-                } else {
-                    player.addNumber(playerNumber);
-                    continueInput = false;
+                while (!player.addNum(console.nextInt())) {
+                    System.out.print("Число не входит в полуинтервал (0, 100]. Введите число: ");
                 }
+                continueInput = false;
             } catch (InputMismatchException exception) {
                 System.out.print("Некорректный формат целого числа. Введите число: ");
                 console.nextLine();
@@ -107,14 +84,53 @@ public class GuessNumber {
         } while (continueInput);
     }
 
+    private boolean isGuessed(Player player) {
+        if (player.getNum() == secretNum) {
+            System.out.println("Игрок " + player.getName() + " угадал число " + secretNum +
+                    " с " + player.getAttempt() + " попытки");
+            return true;
+        }
+        String comparisonSign = (player.getNum() > secretNum) ? "больше" : "меньше";
+        System.out.println("Число " + player.getNum() + " " + comparisonSign + " загаданного числа");
+        if (player.getAttempt() == MAX_ATTEMPTS_LIMIT) {
+            System.out.println("У " + player.getName() + " закончились попытки");
+        }
+        return false;
+    }
+
+    private void clear() {
+        for (Player player: players) {
+            player.clear();
+        }
+    }
+
     private void printPlayersAttempts() {
         for (Player player: players ) {
-            int[] attempts = Arrays.copyOf(player.getNumbers(), player.getAttempt());
+            int[] attempts = Arrays.copyOf(player.getNums(), player.getAttempt());
             System.out.print("Попытки игрока " + player.getName() + ": ");
             for (int num: attempts) {
                 System.out.print(num + " ");
             }
             System.out.println();
+        }
+    }
+
+    private void determineWinner() {
+        int maxScore = players[0].getScore();
+        String winner = players[0].getName();
+
+        for (int i = 1; i < GuessNumberTest.COUNT; i++) {
+            if (maxScore < players[i].getScore()) {
+                maxScore = players[i].getScore();
+                winner = players[i].getName();
+            }
+        }
+        System.out.println(maxScore > 0 ? "\nПобедил игрок: " + winner : "\nНикто не победил");
+    }
+
+    private void clearScores() {
+        for (Player player: players) {
+            player.clearScore();
         }
     }
 }

@@ -3,12 +3,13 @@ package com.startjava.lesson_2_3_4.guess;
 import java.util.Scanner;
 
 public class GuessNumberTest {
-    public static final int COUNT = 3;
+    static final int COUNT = 3;
 
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
         System.out.println("Игра началась");
-        String[] names = createPlayers(console);
+        System.out.println("У каждого игрока по " + GuessNumber.MAX_ATTEMPTS_LIMIT + " попытки(ок)");
+        String[] names = inputNames(console);
 
         String answer = "yes";
         do {
@@ -24,7 +25,7 @@ public class GuessNumberTest {
         console.close();
     }
 
-    public static String[] createPlayers(Scanner console) {
+    private static String[] inputNames(Scanner console) {
         String[] names = new String[COUNT];
         for (int i = 0; i < COUNT; i++) {
             System.out.print("Введите имя игрока: ");
