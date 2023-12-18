@@ -136,7 +136,7 @@ public class GuessNumber {
             }
         }
         if (draw) {
-            System.out.print("Ничья! Игроки " + winner + " набрали по " + maxScore + "очку");
+            System.out.println("Ничья! Игроки " + winner + " набрали по " + maxScore + "очку");
         } else {
             System.out.println(maxScore > 0 ? "\nПобедил игрок: " + winner : "\nНикто не победил");
         }
