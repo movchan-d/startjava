@@ -8,8 +8,8 @@ public class GuessNumber {
 
     static final int ATTEMPTS_LIMIT = 10;
     static final int MIN = 0;
-    static final int MAX = 100;
-    private static final int ROUNDS = 10;
+    static final int MAX = 10;
+    private static final int ROUNDS = 3;
     private final Player[] players = new Player[GuessNumberTest.COUNT];
     private int secretNum;
 
@@ -136,7 +136,7 @@ public class GuessNumber {
             }
         }
         if (draw) {
-            System.out.println("Ничья! Игроки " + winner + " набрали по " + maxScore + "очку");
+            System.out.println("Ничья! Игроки " + winner + " набрали по " + maxScore + " очку");
         } else {
             System.out.println(maxScore > 0 ? "\nПобедил игрок: " + winner : "\nНикто не победил");
         }
