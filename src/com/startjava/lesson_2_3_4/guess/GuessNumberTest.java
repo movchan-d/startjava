@@ -8,7 +8,7 @@ public class GuessNumberTest {
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
         System.out.println("Игра началась");
-        System.out.println("У каждого игрока по " + GuessNumber.MAX_ATTEMPTS_LIMIT + " попытки(ок)");
+        System.out.println("У каждого игрока по " + GuessNumber.ATTEMPTS_LIMIT + " попытки(ок)");
         String[] names = inputNames(console);
 
         String answer = "yes";

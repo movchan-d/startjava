@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Player {
 
     private final String name;
-    private final int[] nums = new int[GuessNumber.MAX_ATTEMPTS_LIMIT];
+    private final int[] nums = new int[GuessNumber.ATTEMPTS_LIMIT];
     private int attempt;
     private int score;
 
@@ -25,25 +25,20 @@ public class Player {
         return nums[attempt - 1];
     }
 
-    public int getScore() {
-        return score;
-    }
-
     public int[] getNums() {
         return Arrays.copyOf(nums, attempt);
     }
 
     public boolean addNum(int num) {
-        if (num <= 0 || num > 100) {
+        if (num <= GuessNumber.MIN || num > GuessNumber.MAX) {
             return false;
         }
         nums[attempt++] = num;
         return true;
     }
 
-    public void clear() {
-        Arrays.fill(nums, 0, attempt, 0);
-        attempt = 0;
+    public int getScore() {
+        return score;
     }
 
     public void addScore() {
@@ -52,5 +47,10 @@ public class Player {
 
     public void clearScore() {
         score = 0;
+    }
+
+    public void clear() {
+        Arrays.fill(nums, 0, attempt, 0);
+        attempt = 0;
     }
 }
