@@ -8,7 +8,7 @@ public class GuessNumber {
 
     static final int ATTEMPTS_LIMIT = 3;
     static final int MIN = 0;
-    static final int MAX = 100;
+    static final int MAX = 10;
     private static final int ROUNDS = 3;
     private final Player[] players = new Player[GuessNumberTest.COUNT];
     private int secretNum;
@@ -74,7 +74,7 @@ public class GuessNumber {
         do {
             try {
                 while (!player.addNum(console.nextInt())) {
-                    System.out.print("Число не входит в полуинтервал (0, 100]. Введите число: ");
+                    System.out.print("Число не входит в полуинтервал (" + MIN + ", " + MAX + "]. Введите число: ");
                 }
                 continueInput = false;
             } catch (InputMismatchException exception) {
@@ -122,21 +122,22 @@ public class GuessNumber {
 
     private void determineWinner() {
         int maxScore = players[0].getScore();
-        String winner = players[0].getName();
+        StringBuilder winner = new StringBuilder(players[0].getName());
         boolean draw = false;
 
         for (int i = 1; i < GuessNumberTest.COUNT; i++) {
             if (maxScore < players[i].getScore()) {
                 maxScore = players[i].getScore();
-                winner = players[i].getName();
+                winner = new StringBuilder(players[i].getName());
                 draw = false;
-            }
-            if (maxScore > 0 && maxScore == players[i].getScore()) {
+            } else if (maxScore > 0 && maxScore == players[i].getScore()) {
+                winner.append(", ").append(players[i].getName());
                 draw = true;
             }
         }
         if (draw) {
-            System.out.println("Ничья");
+            System.out.print("Ничья! Игроки " + winner + " набрали по " + maxScore);
+            System.out.println(maxScore == 1 ? " очку" : "очка");
         } else {
             System.out.println(maxScore > 0 ? "\nПобедил игрок: " + winner : "\nНикто не победил");
         }
