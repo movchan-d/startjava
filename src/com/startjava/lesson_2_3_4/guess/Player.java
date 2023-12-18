@@ -30,7 +30,7 @@ public class Player {
     }
 
     public boolean addNum(int num) {
-        if (num <= GuessNumber.MIN || num > GuessNumber.MAX) {
+        if (num < GuessNumber.MIN || num > GuessNumber.MAX) {
             return false;
         }
         nums[attempt++] = num;

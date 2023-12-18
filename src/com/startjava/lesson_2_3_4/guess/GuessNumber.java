@@ -5,11 +5,11 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GuessNumber {
-
     static final int ATTEMPTS_LIMIT = 10;
-    static final int MIN = 0;
+    static final int MIN = 1;
     static final int MAX = 100;
     private static final int ROUNDS = 3;
+    private final Scanner console = new Scanner(System.in);
     private final Player[] players = new Player[GuessNumberTest.COUNT];
     private int secretNum;
 
@@ -67,21 +67,20 @@ public class GuessNumber {
     }
 
     private void inputPlayerNumber(Player player) {
-        Scanner console = new Scanner(System.in);
         System.out.print("Игрок " + player.getName() + ", введите число: ");
+        boolean isValidNum = false;
 
-        boolean continueInput = true;
-        do {
+        while (!isValidNum) {
             try {
-                while (!player.addNum(console.nextInt())) {
+                isValidNum = player.addNum(console.nextInt());
+                if (!isValidNum) {
                     System.out.print("Число не входит в полуинтервал (" + MIN + ", " + MAX + "]. Введите число: ");
                 }
-                continueInput = false;
             } catch (InputMismatchException exception) {
                 System.out.print("Некорректный формат целого числа. Введите число: ");
                 console.nextLine();
             }
-        } while (continueInput);
+        }
     }
 
     private boolean isGuessed(Player player) {
@@ -143,7 +142,7 @@ public class GuessNumber {
     }
 
     private void clearScores() {
-        for (Player player: players) {
+        for (Player player : players) {
             player.clearScore();
         }
     }
