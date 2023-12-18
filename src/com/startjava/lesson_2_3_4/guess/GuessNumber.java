@@ -8,7 +8,7 @@ public class GuessNumber {
 
     static final int ATTEMPTS_LIMIT = 10;
     static final int MIN = 0;
-    static final int MAX = 10;
+    static final int MAX = 100;
     private static final int ROUNDS = 3;
     private final Player[] players = new Player[GuessNumberTest.COUNT];
     private int secretNum;
