@@ -3,7 +3,7 @@ package com.startjava.lesson_2_3_4.bookshelf;
 import java.util.Arrays;
 
 public class Bookshelf {
-    private static final int SIZE = 3;
+    private static final int SIZE = 10;
     private final Book[] books = new Book[SIZE];
     private int countBooks;
     private int maxLength;
