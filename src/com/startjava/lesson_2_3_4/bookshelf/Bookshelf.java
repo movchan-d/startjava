@@ -3,8 +3,8 @@ package com.startjava.lesson_2_3_4.bookshelf;
 import java.util.Arrays;
 
 public class Bookshelf {
-    private static final int SIZE = 10;
-    private final Book[] books = new Book[SIZE];
+    private static final int CAPACITY = 10;
+    private final Book[] books = new Book[CAPACITY];
     private int countBooks;
     private int maxLength;
 
@@ -17,21 +17,20 @@ public class Bookshelf {
     }
 
     public int getCountFreeShelves() {
-        return SIZE - countBooks;
+        return CAPACITY - countBooks;
     }
 
     public int getMaxLength() {
         return maxLength;
     }
 
-    public boolean saveBook(Book book) {
-        if (countBooks < SIZE) {
+    public boolean save(Book book) {
+        if (countBooks < CAPACITY) {
             books[countBooks++] = book;
             maxLength = Math.max(maxLength, book.getLength());
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     public boolean delete(String title) {

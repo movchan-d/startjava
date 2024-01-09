@@ -4,13 +4,13 @@ public class Book {
 
     private final String author;
     private final String title;
-    private final int year;
+    private final int publicationYear;
     private final int length;
 
     public Book(String author, String title, int year) {
         this.author = author;
         this.title = title;
-        this.year = year;
+        this.publicationYear = year;
         length = toString().length();
     }
 
@@ -23,6 +23,6 @@ public class Book {
     }
 
     public String toString() {
-        return author + ", " + title + ", " + year;
+        return author + ", " + title + ", " + publicationYear;
     }
 }
