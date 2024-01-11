@@ -66,13 +66,17 @@ public class BookshelfTest {
     private static void addBook() {
         System.out.print("\nВведите автора: ");
         String author = console.nextLine();
-        System.out.print(MESSAGE_TITLE);
-        String title = console.nextLine();
+        String title = inputTitle();
         int publicationYear = inputPublicationYear();
         console.nextLine();
 
         Book book = new Book(author, title, publicationYear);
         System.out.print(bookshelf.save(book) ? "\nКнига сохранена.\n" : "\nШкаф заполнен, книгу нельзя добавить.\n");
+    }
+
+    private static String inputTitle() {
+        System.out.print(MESSAGE_TITLE);
+        return console.nextLine();
     }
 
     private static int inputPublicationYear() {
@@ -92,13 +96,11 @@ public class BookshelfTest {
     }
 
     private static void deleteBook() {
-        System.out.print(MESSAGE_TITLE);
-        System.out.print(bookshelf.delete(console.nextLine()) ? "\nКнига удалена.\n" : "\nКнига не найдена.\n");
+        System.out.print(bookshelf.delete(inputTitle()) ? "\nКнига удалена.\n" : "\nКнига не найдена.\n");
     }
 
     private static void findBook() {
-        System.out.print(MESSAGE_TITLE);
-        Book book = bookshelf.find(console.nextLine());
+        Book book = bookshelf.find(inputTitle());
         System.out.print(book != null ? book + "\n": "\nКнига не найдена.\n");
     }
 
