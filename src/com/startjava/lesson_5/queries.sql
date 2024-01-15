@@ -2,7 +2,7 @@
 SELECT *
   FROM jaegers;
 
-\echo Не уничтоженные роботы
+\echo Неуничтоженные роботы
 SELECT *
   FROM jaegers
  WHERE status = 'Active';
